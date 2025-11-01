@@ -51,6 +51,11 @@
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
   transform: translateY(-4px);
 }
+   a.item {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
     .item img {
       width: 100%;
       height: auto;
@@ -110,15 +115,14 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: January 2025</p>
       </div>
     </div>
-    <div class="item">
-     <a href="img/Zelda_SeafoodPaella.jpg">
-      <img src="img/Zelda_SeafoodPaella.jpg" alt="Seafood Paella"></a>
-      <div class="info">
-        <h2>Seafood Paella</h2>
-        <p>The Legend of Zelda: Breath of the Wild</p>
-        <p>First played: February 2021</p>
-      </div>
-    </div>
+    <a href="img/Zelda_SeafoodPaella.jpg" data-caption="Seafood Paella – The Legend of Zelda: Breath of the Wild (First played: February 2021)" class="item" data-lightbox>
+  <img src="img/Zelda_SeafoodPaella.jpg" alt="Seafood Paella">
+  <div class="info">
+    <h2>Seafood Paella</h2>
+    <p>The Legend of Zelda: Breath of the Wild</p>
+    <p>First played: February 2021</p>
+  </div>
+</a>
                 <div class="item">    
   <img src="img/Valheim_MushroomOmelette.jpg" alt="Mushroom Omelette">
       <div class="info">
@@ -205,9 +209,11 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
   <footer>
     Do you know some other games with cool food? <a href="https://s.team/p/cfcq-gqjp/GKVKJWTB">Contact me on Steam</a>
   </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.js"></script>
+<script src="https://unpkg.com/baguettebox.js@1.11.1/dist/baguetteBox.min.js"></script>
 <script>
-  baguetteBox.run('.gallery');
+  baguetteBox.run('.gallery', {
+    captions: true
+  });
 </script>
 </body>
 </html>
