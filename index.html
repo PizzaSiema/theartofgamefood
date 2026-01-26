@@ -33,7 +33,7 @@
   line-height: 1.5;
 }
 .filters{
-  display:flex; gap:1rem; justify-content:center; margin-top:1rem; flex-wrap:wrap;}
+  display:flex; gap:1rem; justify-content:flex-start; margin-top:1rem; flex-wrap:wrap; padding: 0 1rem;}
 .filter{
   display:flex; flex-direction:column; gap:.35rem; align-items:flex-start;}
 .filter label{
@@ -45,6 +45,18 @@
     flex-direction: column;
     align-items: stretch;
   }
+      @media (min-width: 768px) {
+  .filter {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .filter label {
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+}
 
   .filter select {
     width: 100%;
