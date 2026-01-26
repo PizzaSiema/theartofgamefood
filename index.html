@@ -32,6 +32,24 @@
   color: #c8b9a5;
   line-height: 1.5;
 }
+.filters{
+  display:flex; gap:1rem; justify-content:center; margin-top:1rem; flex-wrap:wrap;}
+.filter{
+  display:flex; flex-direction:column; gap:.35rem; align-items:flex-start;}
+.filter label{
+  color:#c8b9a5; font-size:.9rem;}
+.filter select{
+  background:#2e1f14; color:#f4f4f4; border:1px solid #6b4e39; border-radius:8px; padding:.5rem .7rem;}
+    @media (max-width: 480px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter select {
+    width: 100%;
+  }
+}
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -105,9 +123,29 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
   <header>
     <h1>The Art of Game Food</h1>
 <p class="bio">I’ve always been fascinated by aesthetic food in games. Now I collect and share the most memorable meals I come across on my gaming path. Enjoy!</p>
+    <div class="filters">
+  <div class="filter">
+    <label for="dishFilter">Dish type</label>
+    <select id="dishFilter">
+      <option value="all">All</option>
+      <option value="sweet">Sweet</option>
+      <option value="savory">Savory</option>
+    </select>
+  </div>
+<!--
+  <div class="filter">
+    <label for="visualFilter">Visual style</label>
+    <select id="visualFilter">
+      <option value="all">All</option>
+      <option value="2d">2D</option>
+      <option value="3d">3D</option>
+    </select>
+  </div>
+      -->
+</div>
   </header>
   <main class="gallery">
-  <a href="img/Overwatch_RikimaruRamen2.jpg" class="item" data-lightbox>                  
+  <a href="img/Overwatch_RikimaruRamen2.jpg" class="item" data-lightbox data-dish="savory">                  
   <img src="img/Overwatch_RikimaruRamen2.jpg" alt="Rikimaru Ramen">
       <div class="info">
         <h2>Rikimaru Ramen</h2>
@@ -115,7 +153,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: September 2018</p>
       </div>
     </a>
-      <a href="img/Cake_Fortnite.jpg" class="item" data-lightbox>                  
+      <a href="img/Cake_Fortnite.jpg" class="item" data-lightbox data-dish="sweet">                  
   <img src="img/Cake_Fortnite.jpg" alt="Cake">
       <div class="info">
         <h2>Cake</h2>
@@ -123,7 +161,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: November 2017</p>
       </div>
     </a>
-      <a href="img/ApplePie_ZeldaToTK2.jpg" class="item" data-lightbox> 
+      <a href="img/ApplePie_ZeldaToTK2.jpg" class="item" data-lightbox data-dish="sweet"> 
       <img src="img/ApplePie_ZeldaToTK2.jpg" alt="Apple Pie">
       <div class="info">
         <h2>Apple Pie</h2>
@@ -131,7 +169,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: May 2023</p>
       </div>
     </a>
-        <a href="img/TheSims2_Pizza.png" class="item" data-lightbox> 
+        <a href="img/TheSims2_Pizza.png" class="item" data-lightbox data-dish="savory"> 
       <img src="img/TheSims2_Pizza.png" alt="Pizza">
       <div class="info">
         <h2>Pizza</h2>
@@ -139,7 +177,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: ~2006</p>
       </div>
     </a>
-         <a href="img/BaldursGate3_BerryTart2.jpg" class="item" data-lightbox>
+         <a href="img/BaldursGate3_BerryTart2.jpg" class="item" data-lightbox data-dish="sweet">
       <img src="img/BaldursGate3_BerryTart2.jpg" alt="Berry Tart">
       <div class="info">
         <h2>Berry Tart</h2>
@@ -147,7 +185,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: January 2025</p>
       </div>
     </a>
-      <a href="img/Valheim_CookedEgg.jpg" class="item" data-lightbox> 
+      <a href="img/Valheim_CookedEgg.jpg" class="item" data-lightbox data-dish="savory"> 
       <img src="img/Valheim_CookedEgg.jpg" alt="CookedEgg">
       <div class="info">
         <h2>Cooked Egg</h2>
@@ -155,7 +193,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: October 2021</p>
       </div>
     </a>
-         <a href="img/World_of_Warcraft_ChocolateCake.jpg" class="item" data-lightbox> 
+         <a href="img/World_of_Warcraft_ChocolateCake.jpg" class="item" data-lightbox data-dish="sweet"> 
       <img src="img/World_of_Warcraft_ChocolateCake.jpg" alt="Chocolate Cake">
       <div class="info">
         <h2>Chocolate Cake</h2>
@@ -163,7 +201,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: June 2020</p>
       </div>
     </a>
-      <a href="img/Gothic_Cheese.jpg" class="item" data-lightbox> 
+      <a href="img/Gothic_Cheese.jpg" class="item" data-lightbox data-dish="savory"> 
       <img src="img/Gothic_Cheese.jpg" alt="Cheese">
       <div class="info">
         <h2>Cheese</h2>
@@ -171,7 +209,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: ~2018</p>
       </div>
     </a>
-    <a href="img/ReadyorNot_Donuts.jpg" class="item" data-lightbox> 
+    <a href="img/ReadyorNot_Donuts.jpg" class="item" data-lightbox data-dish="sweet"> 
       <img src="img/ReadyorNot_Donuts.jpg" alt="Donuts">
       <div class="info">
         <h2>Donuts</h2>
@@ -179,7 +217,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: May 2025</p>
       </div>
     </a>
-          <a href="img/Minecraft_Cake.png" class="item" data-lightbox>
+          <a href="img/Minecraft_Cake.png" class="item" data-lightbox data-dish="sweet">
       <img src="img/Minecraft_Cake.png" alt="Cake">
       <div class="info">
         <h2>Cake</h2>
@@ -187,7 +225,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: July 2012</p>
       </div>
      </a>
-      <a href="img/ZeldaToTK_Cheesecake.jpg" class="item" data-lightbox>
+      <a href="img/ZeldaToTK_Cheesecake.jpg" class="item" data-lightbox data-dish="sweet">
       <img src="img/ZeldaToTK_Cheesecake.jpg" alt="Cheesecake">
       <div class="info">
         <h2>Cheesecake</h2>
@@ -195,7 +233,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: May 2023</p>
       </div>
     </a>
-          <a href="img/Valheim_MushroomOmelette.jpg" class="item" data-lightbox>                  
+          <a href="img/Valheim_MushroomOmelette.jpg" class="item" data-lightbox data-dish="savory">                  
   <img src="img/Valheim_MushroomOmelette.jpg" alt="Mushroom Omelette">
       <div class="info">
         <h2>Mushroom Omelette</h2>
@@ -203,7 +241,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: October 2021</p>
       </div>
     </a>  
-      <a href="img/Baldurs_WaterdhavianCheeseWheel.png" class="item" data-lightbox> 
+      <a href="img/Baldurs_WaterdhavianCheeseWheel.png" class="item" data-lightbox data-dish="savory">  
       <img src="img/Baldurs_WaterdhavianCheeseWheel.png" alt="WaterdhavianCheeseWheel">
       <div class="info">
         <h2>Waterdhavian Cheese Wheel</h2>
@@ -211,7 +249,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: January 2025</p>
       </div>
           </a>
-    <a href="img/Valheim_LoxPie.jpg" class="item" data-lightbox> 
+    <a href="img/Valheim_LoxPie.jpg" class="item" data-lightbox data-dish="savory"> 
       <img src="img/Valheim_LoxPie.jpg" alt="Lox Pie">
       <div class="info">
         <h2>Lox Pie</h2>
@@ -219,7 +257,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: October 2021</p>
       </div>
             </a>
-          <a href="img/Stardew_Chocolate_Cake.jpg" class="item" data-lightbox>                  
+          <a href="img/Stardew_Chocolate_Cake.jpg" class="item" data-lightbox data-dish="sweet">                  
   <img src="img/Stardew_Chocolate_Cake.jpg" alt="Chocolate Cake">
       <div class="info">
         <h2>Chocolate Cake</h2>
@@ -227,7 +265,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
         <p>First played: September 2018</p>
       </div>
     </a>
-     <a href="img/Zelda_SeafoodPaella.jpg" class="item" data-lightbox>
+     <a href="img/Zelda_SeafoodPaella.jpg" class="item" data-lightbox data-dish="savory">
   <img src="img/Zelda_SeafoodPaella.jpg" alt="Seafood Paella">
   <div class="info">
     <h2>Seafood Paella</h2>
@@ -235,7 +273,7 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
     <p>First played: February 2021</p>
   </div>
 </a>
-    <a href="img/Roblox_Cheezburger_2.jpg" class="item" data-lightbox>
+    <a href="img/Roblox_Cheezburger_2.jpg" class="item" data-lightbox data-dish="savory">
       <img src="img/Roblox_Cheezburger_2.jpg" alt="Cheezburger">
       <div class="info">
         <h2>Cheezburger</h2>
@@ -254,6 +292,25 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
   baguetteBox.run('.gallery', {
     captions: true
   });
+</script>
+  <script>
+  const dishFilter = document.getElementById('dishFilter');
+  const visualFilter = document.getElementById('visualFilter');
+  const items = Array.from(document.querySelectorAll('.gallery .item'));
+
+  function applyFilters() {
+    const dish = dishFilter.value;
+    const visual = visualFilter.value;
+
+    items.forEach(el => {
+      const okDish = (dish === 'all') || (el.dataset.dish === dish);
+      const okVisual = (visual === 'all') || (el.dataset.visual === visual);
+      el.style.display = (okDish && okVisual) ? '' : 'none';
+    });
+  }
+
+  dishFilter.addEventListener('change', applyFilters);
+  visualFilter.addEventListener('change', applyFilters);
 </script>
 </body>
 </html>
