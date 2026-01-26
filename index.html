@@ -295,22 +295,23 @@ background: linear-gradient(to bottom, #2e1f14, #3b281a);
 </script>
   <script>
   const dishFilter = document.getElementById('dishFilter');
-  const visualFilter = document.getElementById('visualFilter');
+ // const visualFilter = document.getElementById('visualFilter');
   const items = Array.from(document.querySelectorAll('.gallery .item'));
 
   function applyFilters() {
     const dish = dishFilter.value;
-    const visual = visualFilter.value;
+  //  const visual = visualFilter.value;
 
     items.forEach(el => {
       const okDish = (dish === 'all') || (el.dataset.dish === dish);
-      const okVisual = (visual === 'all') || (el.dataset.visual === visual);
-      el.style.display = (okDish && okVisual) ? '' : 'none';
+    //  const okVisual = (visual === 'all') || (el.dataset.visual === visual);
+    //  el.style.display = (okDish && okVisual) ? '' : 'none';
+     el.style.display = okDish ? '' : 'none';
     });
   }
 
   dishFilter.addEventListener('change', applyFilters);
-  visualFilter.addEventListener('change', applyFilters);
+//  visualFilter.addEventListener('change', applyFilters);
 </script>
 </body>
 </html>
